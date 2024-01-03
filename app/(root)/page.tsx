@@ -1,15 +1,23 @@
-import Image from 'next/image'
-import { UserButton } from '@clerk/nextjs'
+"use client";
 
-export default function Home() {
+import { Modal } from "@/components/ui/modal";
+import { UserButton } from "@clerk/nextjs";
+
+export default function Setup() {
   return (
-    <div>
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      This page is protected via Clerk!
+    // Getting a hydration error here. Need to fix.
+    <div className="p-4">
+      <div className="flex items-end justify-end p-5 ">
+        <UserButton afterSignOutUrl="/" />
+      </div>
+      <Modal
+        title="Setup"
+        description="Test Description"
+        isOpen
+        onClose={() => {}}
+      >
+        Children
+      </Modal>
     </div>
-    <div className="h-screen">
-      <UserButton afterSignOutUrl="/"/>
-    </div>
-    </div>
-  )
+  );
 }
