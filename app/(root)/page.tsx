@@ -1,23 +1,22 @@
 "use client";
 
-import { Modal } from "@/components/ui/modal";
-import { UserButton } from "@clerk/nextjs";
+import { useStoreModal } from "@/hooks/use-store-modal";
+import { useEffect } from "react";
 
-export default function Setup() {
+const Setup = () => {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen();
+    }
+  }, []);
+
   return (
     // Getting a hydration error here. Need to fix.
-    <div className="p-4">
-      <div className="flex items-end justify-end p-5 ">
-        <UserButton afterSignOutUrl="/" />
-      </div>
-      <Modal
-        title="Setup"
-        description="Test Description"
-        isOpen
-        onClose={() => {}}
-      >
-        Children
-      </Modal>
-    </div>
+    <div className="p-4">Root Page</div>
   );
 }
+
+export default Setup;
