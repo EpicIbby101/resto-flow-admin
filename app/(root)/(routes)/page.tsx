@@ -13,10 +13,7 @@ const Setup = () => {
     }
   }, []);
 
-  return (
-    // Getting a hydration error here. Need to fix.
-    <div className="p-4">Root Page</div>
-  );
+  return null;
 }
 
 export default Setup;
