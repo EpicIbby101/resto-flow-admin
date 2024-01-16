@@ -52,6 +52,23 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ InitialData }) => {
     }
   };
 
+  const onDelete = async () => {
+    try {
+      setLoading(true);
+      await axios.delete(`/api/stores/${params.storeId}`);
+      router.refresh();
+      router.push("/")
+      toast.success("Store successfully deleted.")
+    } catch (error) {
+      toast.error(
+        "Make sure you have removed all products and categories from store first."
+      );
+    } finally {
+      setLoading(false);
+      setOpen(false);
+    }
+  };
+
   const form = useForm<settingsFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: InitialData,
@@ -62,7 +79,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ InitialData }) => {
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onConfirm={() => {}}
+        onConfirm={onDelete}
         loading={loading}
       />
       <div className="flex items-center justify-between">

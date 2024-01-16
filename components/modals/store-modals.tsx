@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useParams, useRouter } from "next/navigation";
 
 // Here we create a schema to ensure that there is at least one character in the input form
 const formSchema = z.object({
