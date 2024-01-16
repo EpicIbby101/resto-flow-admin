@@ -22,6 +22,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "./modals/alertModal";
+import { APIAlert } from "./ui/apiAlert";
 
 interface SettingsFormProps {
   InitialData: Store;
@@ -57,8 +58,8 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ InitialData }) => {
       setLoading(true);
       await axios.delete(`/api/stores/${params.storeId}`);
       router.refresh();
-      router.push("/")
-      toast.success("Store successfully deleted.")
+      router.push("/");
+      toast.success("Store successfully deleted.");
     } catch (error) {
       toast.error(
         "Make sure you have removed all products and categories from store first."
@@ -123,6 +124,12 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ InitialData }) => {
           </Button>
         </form>
       </Form>
+      <Separator />
+      <APIAlert
+        title="PUBLIC_API_URL"
+        description={`${origin}/api/${params.storeId}`}
+        variant="public"
+      />
     </>
   );
 };
