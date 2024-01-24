@@ -23,6 +23,7 @@ import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "./modals/alertModal";
 import { APIAlert } from "./ui/apiAlert";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsFormProps {
   InitialData: Store;
@@ -37,6 +38,8 @@ type settingsFormValues = z.infer<typeof formSchema>;
 export const SettingsForm: React.FC<SettingsFormProps> = ({ InitialData }) => {
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
+
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -106,7 +109,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ InitialData }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Store Name</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
