@@ -1,17 +1,27 @@
-"use client"
+"use client";
 
+import { Plus } from "lucide-react";
+import { Button } from "./ui/button";
 import { Heading } from "./ui/heading";
+import { Separator } from "./ui/separator";
+import { useParams, useRouter } from "next/navigation";
 
 const BillboardsClient = () => {
-    return (
-      <div className="flex flex-col">
-        <div className="flex-1 space-y-4 p-8 pt-6">
-            <Heading
-            title="Billboard"
-            description="This here is a billboard" />
-        </div>
+  const router = useRouter();
+  const params = useParams();
+
+  return (
+    <>
+      <div className="flex items-center justify-between">
+        <Heading title="Billboards" description="Manage Your Billboards" />
+        <Button onClick={() => router.push(`/${params.storeId}/billboard/new`)}>
+          <Plus className="mr-2" />
+          Add New
+        </Button>
       </div>
-    );
-  }
-  
-  export default BillboardsClient
+      <Separator />
+    </>
+  );
+};
+
+export default BillboardsClient;
