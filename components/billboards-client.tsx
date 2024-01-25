@@ -14,7 +14,7 @@ const BillboardsClient = () => {
     <>
       <div className="flex items-center justify-between">
         <Heading title="Billboards" description="Manage Your Billboards" />
-        <Button onClick={() => router.push(`/${params.storeId}/billboard/new`)}>
+        <Button onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
           <Plus className="mr-2" />
           Add New
         </Button>
