@@ -8,6 +8,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Billboard } from "@prisma/client";
 import { BillboardColumn, columns } from "./columns";
 import { DataTable } from "./ui/data-table";
+import { ApiList } from "./api-list";
 
 interface BillboardClientProps {
   data: BillboardColumn[];
@@ -32,7 +33,10 @@ const BillboardsClient: React.FC<BillboardClientProps> = ({ data }) => {
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="label" columns={columns} data={data}/>
+      <DataTable searchKey="label" columns={columns} data={data} />
+      <Heading title="API" description="List of API routes" />
+      <ApiList entityName="billboards" entityIdName="billboardsId" />
+      <Separator />
     </>
   );
 };

@@ -1,3 +1,5 @@
+"use client"
+
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { BillboardColumn } from "./columns";
 import { Button } from "./ui/button";
