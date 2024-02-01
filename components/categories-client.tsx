@@ -5,16 +5,16 @@ import { Button } from "./ui/button";
 import { Heading } from "./ui/heading";
 import { Separator } from "./ui/separator";
 import { useParams, useRouter } from "next/navigation";
-import { Billboard } from "@prisma/client";
-import { BillboardColumn, columns } from "./billboard-columns";
+import { columns } from "./category-columns";
 import { DataTable } from "./ui/data-table";
 import { ApiList } from "./api-list";
+import { CategoryColumn } from "./category-columns";
 
-interface BillboardClientProps {
-  data: BillboardColumn[];
+interface CategoryClientProps {
+  data: CategoryColumn[];
 }
 
-const BillboardsClient: React.FC<BillboardClientProps> = ({ data }) => {
+const CategoryClient: React.FC<CategoryClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
 
@@ -41,4 +41,4 @@ const BillboardsClient: React.FC<BillboardClientProps> = ({ data }) => {
   );
 };
 
-export default BillboardsClient;
+export default CategoryClient;

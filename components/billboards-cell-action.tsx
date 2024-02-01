@@ -1,7 +1,7 @@
 "use client"
 
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import { BillboardColumn } from "./columns";
+import { BillboardColumn } from "./billboard-columns";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
 import {
