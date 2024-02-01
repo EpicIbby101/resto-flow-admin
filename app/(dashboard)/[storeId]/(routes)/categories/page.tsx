@@ -1,4 +1,3 @@
-import BillboardsClient from "@/components/billboards-client";
 import CategoryClient from "@/components/categories-client";
 import { CategoryColumn } from "@/components/category-columns"
 import { format } from "date-fns";
