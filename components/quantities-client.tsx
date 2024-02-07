@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { Heading } from "./ui/heading";
 import { Separator } from "./ui/separator";
 import { useParams, useRouter } from "next/navigation";
-import { Billboard } from "@prisma/client";
 import { QuantitiesColumn, columns } from "./quantities-columns";
 import { DataTable } from "./ui/data-table";
 import { ApiList } from "./api-list";
