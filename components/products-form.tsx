@@ -22,6 +22,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "./modals/alertModal";
+import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "./image-upload";
 
 interface BillboardFormProps {
@@ -54,7 +55,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       setLoading(true);
       if (initialData) {
         await axios.patch(
-          `/api/${params.storeId}/billboards/${params.billboardId}`,
+          `/api/${params.storeId}/products/${params.billboardId}`,
           data
         );
       } else {
